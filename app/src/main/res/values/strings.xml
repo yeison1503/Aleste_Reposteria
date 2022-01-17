@@ -1,3 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Aleste Reposteria</string>
+    <string name="app_name">Aleste Repostería</string>
+    <string name="sing_out">Cerrar sesión</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="repeat_password">Repita la contraseña</string>
+    <string name="register">Registrar</string>
+    <string name="sing_in">INICIAR SESIÓN</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="does_not_have_account"><u>¡No tienes cuenta Registrate!</u></string>
+    <string name="info">Nombre: %s \nAuthor: %s \nPáginas: %d \nResumen: %s \nGénero: %s \nCalificación: %d \n Fecha de Publicación %s</string>
+
 </resources>
