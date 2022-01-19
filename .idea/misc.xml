@@ -3,16 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria/app/src/main/res/layout/activity_login.xml" value="0.2564814814814815" />
         <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria/app/src/main/res/layout/activity_register.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria/app/src/main/res/layout/activity_splach.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria/app/src/main/res/menu/menu_overflow.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria2/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria2/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria2/app/src/main/res/layout/activity_register.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria2/app/src/main/res/layout/activity_splach.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria2/app/src/main/res/menu/menu_overflow.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/yeiso/Desktop/Dispositivos/proyectos/AlesteReposteria/app/src/main/res/layout/activity_splash.xml" value="0.27447916666666666" />
       </map>
     </option>
   </component>

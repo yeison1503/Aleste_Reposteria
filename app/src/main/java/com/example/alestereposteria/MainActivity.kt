@@ -38,12 +38,14 @@ class MainActivity : AppCompatActivity() {
             val format = "dd-MM-yyyy"
             val simpleDateFormat = SimpleDateFormat(format, Locale.US)
             publicationDate = simpleDateFormat.format(cal.time).toString()
-            mainBinding.publicationDateButton.text = publicationDate
+            mainBinding.dateOfOrdenButton.text = publicationDate
         }
 
         with(mainBinding) {
 
-            publicationDateButton.setOnClickListener{
+            nameUsuarioTextView.text = getString(R.string.email_user, emailReceived)
+
+            dateOfOrdenButton.setOnClickListener{
                 DatePickerDialog(
                     this@MainActivity,
                     dateSetListener,
@@ -54,47 +56,33 @@ class MainActivity : AppCompatActivity() {
             }
 
             saveButton.setOnClickListener {
-                if (nameBookEditText.text?.isEmpty() == true ||
-                    nameAuthorEditText.text?.isEmpty() == true ||
-                    pagesEditText.text?.isEmpty() == true
-                ) {
+                if (nameUserEditText.text?.isEmpty() == true || phoneNumberEditText.text?.isEmpty() == true
+                    //remarksEditText.text?.isEmpty() == true
+                    ) {
                     Toast.makeText(
                         applicationContext,
-                        "Debe digitar nombre, autor y número de páginas",
+                        "Debe digitar nombre y número telefonico",
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    val nameBook = nameBookEditText.text.toString()
-                    val author = nameAuthorEditText.text.toString()
-                    val pages = pagesEditText.text.toString().toInt()
-                    val abstract = abstractEditText.text.toString()
+                    val nameUser = nameUserEditText.text.toString()
+                    val cellphone = phoneNumberEditText.text.toString()
+                    val remarks = remarksEditText.text.toString()
 
-                    var genre = ""
-                    if (suspenseCheckBox.isChecked) genre = "Suspenso"
-                    if (terrorCheckBox.isChecked) genre += "Terror"
-                    if (infantileCheckBox.isChecked) genre += "Infantil"
-                    if (fictionCheckBox.isChecked) genre += "Ficción"
-
-                    // var score = if (oneRadioButton.isChecked) 1 else 2
-                    val score = when {
-                        oneRadioButton.isChecked -> 1
-                        twoRadioButton.isChecked -> 2
-                        threeRadioButton.isChecked -> 3
-                        fourRadioButton.isChecked -> 4
-                        else -> 5
-                    }
-
+                    var product = ""
+                    if (cakeCheckBox.isChecked) product = "Torta"
+                    if (cupcakeCheckBox.isChecked) product += "Cupcake"
+                    if (cookiesCheckBox.isChecked) product += "Galletas"
+                    if (dessertCheckBox.isChecked) product += "Postre"
 
 
                     infoTextView.text =
                         getString(
                             R.string.info,
-                            nameBook,
-                            author,
-                            pages,
-                            abstract,
-                            genre,
-                            score,
+                            nameUser,
+                            cellphone,
+                            remarks,
+                            product,
                             publicationDate)
                 }
             }
@@ -117,6 +105,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         intent.putExtra("email", emailReceived)
         intent.putExtra("password", passwordReceived)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.flags =Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
