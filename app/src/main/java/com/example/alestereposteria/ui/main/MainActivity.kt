@@ -1,4 +1,4 @@
-package com.example.alestereposteria
+package com.example.alestereposteria.ui.main
 
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -7,7 +7,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.alestereposteria.R
 import com.example.alestereposteria.databinding.ActivityMainBinding
+import com.example.alestereposteria.ui.login.LoginActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
