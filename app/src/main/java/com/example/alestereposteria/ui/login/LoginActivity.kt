@@ -1,11 +1,12 @@
-package com.example.alestereposteria
+package com.example.alestereposteria.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.alestereposteria.ui.main.MainActivity
+import com.example.alestereposteria.ui.register.RegisterActivity
 import com.example.alestereposteria.databinding.ActivityLoginBinding
-import java.util.zip.Inflater
 
 class LoginActivity : AppCompatActivity() {
 

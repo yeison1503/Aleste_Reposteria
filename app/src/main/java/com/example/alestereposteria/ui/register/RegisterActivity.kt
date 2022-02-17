@@ -1,11 +1,11 @@
-package com.example.alestereposteria
+package com.example.alestereposteria.ui.register
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.alestereposteria.databinding.ActivityRegisterBinding
+import com.example.alestereposteria.ui.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 
