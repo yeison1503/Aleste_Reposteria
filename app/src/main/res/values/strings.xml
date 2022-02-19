@@ -21,5 +21,8 @@
     <string name="date_format">DD-MM-YYYY</string>
     <string name="save">Guardar</string>
     <string name="info">Nombre: %s \nNúmero Celular: %s \nObservaciones: %s \nProducto: %s \nFecha de Publicación: %s</string>
+    <string name="name_user">"Nombre completo:"</string>
+    <string name="cell_phone_number">Número Celular:</string>
+    <string name="address">Dirección:</string>
 
 </resources>

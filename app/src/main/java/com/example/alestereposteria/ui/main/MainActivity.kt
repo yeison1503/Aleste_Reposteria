@@ -9,30 +9,22 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.alestereposteria.R
 import com.example.alestereposteria.databinding.ActivityMainBinding
-import com.example.alestereposteria.ui.login.LoginActivity
+import com.example.alestereposteria.ui.login.LoginFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding : ActivityMainBinding
-    private var cal = Calendar.getInstance()
-    private var publicationDate = ""
-    private var emailReceived : String? = ""
-    private var passwordReceived : String? = ""
+    //private var cal = Calendar.getInstance()
+    //private var publicationDate = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        val credential = intent.extras
-        if (credential != null){
-            emailReceived = credential.getString("email")
-            passwordReceived = credential.getString("password")
-        }
-
-        val dateSetListener = DatePickerDialog.OnDateSetListener{ _, year, month, dayOfMonth ->
+        /*val dateSetListener = DatePickerDialog.OnDateSetListener{ _, year, month, dayOfMonth ->
             cal.set(Calendar.YEAR, year)
             cal.set(Calendar.MONTH, month)
             cal.set(Calendar.DAY_OF_YEAR, dayOfMonth)
@@ -44,8 +36,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         with(mainBinding) {
-
-            nameUsuarioTextView.text = getString(R.string.email_user, emailReceived)
 
             dateOfOrdenButton.setOnClickListener{
                 DatePickerDialog(
@@ -88,10 +78,10 @@ class MainActivity : AppCompatActivity() {
                             publicationDate)
                 }
             }
-        }
+        }*/
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_overflow, menu)
         return true
     }
@@ -104,11 +94,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goToLoginActivity(){
-        val intent = Intent(this, LoginActivity::class.java)
-        intent.putExtra("email", emailReceived)
-        intent.putExtra("password", passwordReceived)
+        val intent = Intent(this, LoginFragment::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.flags =Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
-    }
+    }*/
 }
