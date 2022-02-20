@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.databinding.FragmentLoginBinding
+import com.example.alestereposteria.local.Users
 
 
 class LoginFragment : Fragment() {
@@ -35,25 +36,35 @@ class LoginFragment : Fragment() {
         }
 
 
-        //Para pasar de un fragmento a otro fragmento, tener en cuenta desde hacia donde se va a ir y a cual se va a ir
+        loginViewModel.findUserDone.observe(viewLifecycleOwner) { user ->
+            onFindUserDone(user)
+        }
+
+        //Para pasar de un fragmento a otro fragmento, tener en cuenta desde hacia donde se va a ir y a cual se va a ir.
         loginBinding.registerTextView.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
 
 
         with(loginBinding) {
-
             singInButton.setOnClickListener {
                 loginViewModel.searchUser(
                     emailEditText.text.toString(),
                     passwordEditText.text.toString()
                 )
             }
-
         }
     }
 
-private fun onMsgDoneSuscribe(msg: String?) {
+    private fun onFindUserDone(user: Users) {
+        if (user.email == loginBinding.emailEditText.text.toString() && user.password == loginBinding.passwordEditText.text.toString()){
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToBottonActivity())
+        }else{
+            onMsgDoneSuscribe(msg = "Correo o Contraseña Incorrectas!")
+        }
+    }
+
+    private fun onMsgDoneSuscribe(msg: String?) {
     Toast.makeText(
         requireContext(),
         msg,

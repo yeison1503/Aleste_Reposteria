@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.alestereposteria.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_purchaseFragment"
+            app:destination="@id/purchaseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderStatusFragment"
+        android:name="com.example.alestereposteria.ui.order_status.OrderStatusFragment"
+        android:label="fragment_order_status"
+        tools:layout="@layout/fragment_order_status" >
+        <action
+            android:id="@+id/action_orderStatusFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.alestereposteria.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/purchaseFragment"
+        android:name="com.example.alestereposteria.ui.purchase.PurchaseFragment"
+        android:label="PurchaseFragment" >
+        <action
+            android:id="@+id/action_purchaseFragment_to_orderStatusFragment"
+            app:destination="@id/orderStatusFragment" />
+    </fragment>
+</navigation>

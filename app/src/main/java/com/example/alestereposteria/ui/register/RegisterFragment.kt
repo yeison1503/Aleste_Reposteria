@@ -6,7 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.alestereposteria.R
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
@@ -24,30 +25,44 @@ class RegisterFragment : Fragment() {
         return registerBinding.root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        registerViewModel.msgDone.observe(viewLifecycleOwner) { msg ->
+            onMsgDoneSuscribe(msg)
+        }
+
+       registerViewModel.dataValidated.observe(viewLifecycleOwner){ validate ->
+            onDateValidateSuscribe(validate)
+        }
 
         with(registerBinding){
+
             registerButton.setOnClickListener{
                 registerViewModel.DateValidate(
-                    nameEditText.toString(),
-                    cellFhoneEditText.toString().toInt(),
-                    addressEditText.toString(),
+                    nameEditText.text.toString(),
+                    cellPhoneEditText.text.toString(),
+                    addressEditText.text.toString(),
                     emailEditText.text.toString(),
                     passwordEditText.text.toString(),
                     repPasswordEditText.text.toString(),
                 )
             }
-
-
-
-
         }
+    }
 
+   private fun onDateValidateSuscribe(validate: Boolean?) {
+       findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
+    }
 
-
-
+    private fun onMsgDoneSuscribe(msg: String?) {
+        Toast.makeText(
+            requireContext(),
+            msg,
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
 }

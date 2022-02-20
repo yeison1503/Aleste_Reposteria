@@ -25,4 +25,10 @@
     <string name="cell_phone_number">Número Celular:</string>
     <string name="address">Dirección:</string>
 
+    <string name="menu_home">Home</string>
+    <string name="title_home">Home</string>
+    <string name="title_order">Pedidos</string>
+    <string name="title_purchase">Compras</string>
+    <string name="title_profile">Perfil</string>
+
 </resources>

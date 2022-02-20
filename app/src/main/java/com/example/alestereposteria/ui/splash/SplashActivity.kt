@@ -9,6 +9,7 @@ import com.example.alestereposteria.ui.login.LoginFragment
 import java.util.*
 import kotlin.concurrent.timerTask
 
+
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
         val timer = Timer()
         timer.schedule(timerTask {
             goToMainActivity()
-        },  1500
+        },  2000
         )
     }
 

@@ -81,6 +81,8 @@ class MainActivity : AppCompatActivity() {
         }*/
     }
 
+
+    // Boton para cerrar sesión desde la barra menú
     /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_overflow, menu)
         return true
