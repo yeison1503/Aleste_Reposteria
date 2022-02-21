@@ -8,12 +8,11 @@ import java.sql.Types.NULL
 
 class UsersRepository {
 
-    suspend fun saveUser(name: String, cellphone: Int, address: String, email: String, password: String) {
+    suspend fun saveUser(name: String, cellphone: String, email: String, password: String) {
         val users = Users(
             id = NULL,
             name = name,
-            cell_phone = NULL,
-            address = address,
+            cell_phone = cellphone,
             email = email,
             password = password
         )

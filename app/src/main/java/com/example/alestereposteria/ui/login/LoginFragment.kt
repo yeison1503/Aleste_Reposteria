@@ -35,7 +35,6 @@ class LoginFragment : Fragment() {
             onMsgDoneSuscribe(msg)
         }
 
-
         loginViewModel.findUserDone.observe(viewLifecycleOwner) { user ->
             onFindUserDone(user)
         }
@@ -44,7 +43,6 @@ class LoginFragment : Fragment() {
         loginBinding.registerTextView.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
-
 
         with(loginBinding) {
             singInButton.setOnClickListener {
@@ -59,6 +57,8 @@ class LoginFragment : Fragment() {
     private fun onFindUserDone(user: Users) {
         if (user.email == loginBinding.emailEditText.text.toString() && user.password == loginBinding.passwordEditText.text.toString()){
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToBottonActivity())
+        }else if(user.email.isEmpty()){
+            onMsgDoneSuscribe(msg = "Debe crear un usuario!")
         }else{
             onMsgDoneSuscribe(msg = "Correo o Contraseña Incorrectas!")
         }

@@ -20,6 +20,7 @@ class SplashActivity : AppCompatActivity() {
         splashBinding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(splashBinding.root)
 
+        //Thread.sleep(200)
         val timer = Timer()
         timer.schedule(timerTask {
             goToMainActivity()

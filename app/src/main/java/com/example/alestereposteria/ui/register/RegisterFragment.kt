@@ -34,7 +34,7 @@ class RegisterFragment : Fragment() {
             onMsgDoneSuscribe(msg)
         }
 
-       registerViewModel.dataValidated.observe(viewLifecycleOwner){ validate ->
+        registerViewModel.dataValidated.observe(viewLifecycleOwner){ validate ->
             onDateValidateSuscribe(validate)
         }
 
@@ -44,13 +44,13 @@ class RegisterFragment : Fragment() {
                 registerViewModel.DateValidate(
                     nameEditText.text.toString(),
                     cellPhoneEditText.text.toString(),
-                    addressEditText.text.toString(),
                     emailEditText.text.toString(),
                     passwordEditText.text.toString(),
                     repPasswordEditText.text.toString(),
                 )
             }
         }
+
     }
 
    private fun onDateValidateSuscribe(validate: Boolean?) {
