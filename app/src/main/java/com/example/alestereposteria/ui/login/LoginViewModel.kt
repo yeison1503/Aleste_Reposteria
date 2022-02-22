@@ -17,8 +17,8 @@ class LoginViewModel : ViewModel() {
     val msgDone: LiveData<String> = msg
 
 
-    private val findUser: MutableLiveData<Users> = MutableLiveData()
-    val findUserDone: LiveData<Users> = findUser
+    private val findUser: MutableLiveData<Users?> = MutableLiveData()
+    val findUserDone: LiveData<Users?> = findUser
 
     fun searchUser(emailUser: String, password: String) {
         if (emailUser.isEmpty() || password.isEmpty()){
@@ -28,11 +28,6 @@ class LoginViewModel : ViewModel() {
             GlobalScope.launch(Dispatchers.IO) {
                findUser.postValue(usersRepository.searchUser(emailUser))
             }
-           /* if (User.password == password){
-                dataValidate.value = true
-            }else {
-                msg.value = "Usuario o Contraseña incorrectos!"
-            }*/
         }
     }
 }

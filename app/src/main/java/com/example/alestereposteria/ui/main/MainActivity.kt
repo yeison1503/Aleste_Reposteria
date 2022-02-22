@@ -7,11 +7,19 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.R
 import com.example.alestereposteria.databinding.ActivityMainBinding
+import com.example.alestereposteria.ui.bottom.BottonActivity
+import com.example.alestereposteria.ui.home.HomeFragment
 import com.example.alestereposteria.ui.login.LoginFragment
+import com.example.alestereposteria.ui.login.LoginFragmentDirections
+import com.example.alestereposteria.ui.splash.SplashFragment
+import com.example.alestereposteria.ui.splash.SplashFragmentDirections
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.concurrent.timerTask
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,63 +32,9 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        /*val dateSetListener = DatePickerDialog.OnDateSetListener{ _, year, month, dayOfMonth ->
-            cal.set(Calendar.YEAR, year)
-            cal.set(Calendar.MONTH, month)
-            cal.set(Calendar.DAY_OF_YEAR, dayOfMonth)
-
-            val format = "dd-MM-yyyy"
-            val simpleDateFormat = SimpleDateFormat(format, Locale.US)
-            publicationDate = simpleDateFormat.format(cal.time).toString()
-            mainBinding.dateOfOrdenButton.text = publicationDate
-        }
-
-        with(mainBinding) {
-
-            dateOfOrdenButton.setOnClickListener{
-                DatePickerDialog(
-                    this@MainActivity,
-                    dateSetListener,
-                    cal.get(Calendar.YEAR),
-                    cal.get(Calendar.MONTH),
-                    cal.get(Calendar.DAY_OF_MONTH)
-                ).show()
-            }
-
-            saveButton.setOnClickListener {
-                if (nameUserEditText.text?.isEmpty() == true || phoneNumberEditText.text?.isEmpty() == true
-                    //remarksEditText.text?.isEmpty() == true
-                    ) {
-                    Toast.makeText(
-                        applicationContext,
-                        "Debe digitar nombre y número telefonico",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    val nameUser = nameUserEditText.text.toString()
-                    val cellphone = phoneNumberEditText.text.toString()
-                    val remarks = remarksEditText.text.toString()
-
-                    var product = ""
-                    if (cakeCheckBox.isChecked) product = "Torta"
-                    if (cupcakeCheckBox.isChecked) product += "Cupcake"
-                    if (cookiesCheckBox.isChecked) product += "Galletas"
-                    if (dessertCheckBox.isChecked) product += "Postre"
 
 
-                    infoTextView.text =
-                        getString(
-                            R.string.info,
-                            nameUser,
-                            cellphone,
-                            remarks,
-                            product,
-                            publicationDate)
-                }
-            }
-        }*/
     }
-
 
     // Boton para cerrar sesión desde la barra menú
     /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {

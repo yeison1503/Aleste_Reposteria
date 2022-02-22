@@ -54,11 +54,14 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun onFindUserDone(user: Users) {
-        if (user.email == loginBinding.emailEditText.text.toString() && user.password == loginBinding.passwordEditText.text.toString()){
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToBottonActivity())
-        }else if(user.email.isEmpty()){
+    private fun onFindUserDone(user: Users?) {
+
+
+        if (user == null) {
             onMsgDoneSuscribe(msg = "Debe crear un usuario!")
+        }else if(user.email == loginBinding.emailEditText.text.toString() && user.password == loginBinding.passwordEditText.text.toString()){
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToBottonActivity())
+
         }else{
             onMsgDoneSuscribe(msg = "Correo o Contraseña Incorrectas!")
         }

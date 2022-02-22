@@ -1,15 +1,16 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.alestereposteria.ui.splash
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.databinding.FragmentSplashBinding
-import java.util.*
-import kotlin.concurrent.timerTask
 
 class SplashFragment : Fragment() {
 
@@ -29,11 +30,12 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*splashViewModel.dataValidated.observe(viewLifecycleOwner) { result ->
-            onValidate(result)
-        }*/
 
-        splashBinding.imageView.setOnClickListener{goToLoginFragment()}
+        Handler().postDelayed(Runnable {
+            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+        }, 1500)
+
+        //splashBinding.imageView.setOnClickListener{goToLoginFragment()}
 
         /*val timer = Timer()
         timer.schedule(
@@ -47,8 +49,8 @@ class SplashFragment : Fragment() {
         findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
     }*/
 
-    private fun goToLoginFragment() {
+    /*private fun goToLoginFragment() {
         findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
-    }
+    }*/
 
 }
