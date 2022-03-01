@@ -8,17 +8,16 @@
 
     <ImageView
         android:id="@+id/profile_image_view"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:background="#673AB7"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/title_profile"
+        android:foreground="@drawable/ic_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,UnusedAttribute"
-        tools:src="@drawable/ic_profile"
-        tools:targetApi="m" />
+        tools:ignore="ImageContrastCheck"
+        tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/profile_name_text_view"
@@ -83,6 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/favorites"
+            android:textColorHint="#616161"
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 

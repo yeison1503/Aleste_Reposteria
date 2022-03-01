@@ -7,26 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.alestereposteria.R
+import com.example.alestereposteria.databinding.FragmentPurchaseBinding
 
 class PurchaseFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = PurchaseFragment()
-    }
-
-    private lateinit var viewModel: PurchaseViewModel
+    private lateinit var purchaseBinding: FragmentPurchaseBinding
+    private lateinit var purchaseViewModel: PurchaseViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_purchase, container, false)
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PurchaseViewModel::class.java)
-        // TODO: Use the ViewModel
+        purchaseBinding = FragmentPurchaseBinding.inflate(inflater, container, false)
+        purchaseViewModel = ViewModelProvider(this)[PurchaseViewModel::class.java]
+        return purchaseBinding.root
     }
 
 }

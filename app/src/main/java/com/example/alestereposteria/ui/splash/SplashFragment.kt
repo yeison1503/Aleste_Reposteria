@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.databinding.FragmentSplashBinding
 
@@ -32,17 +33,12 @@ class SplashFragment : Fragment() {
 
 
         Handler().postDelayed(Runnable {
+            //fragmentManager?.beginTransaction()?.remove(this)?.commit()
             findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
-        }, 1500)
+        }, 1000)
 
         //splashBinding.imageView.setOnClickListener{goToLoginFragment()}
 
-        /*val timer = Timer()
-        timer.schedule(
-            timerTask {
-            goToLoginFragment()
-        },2000
-        )*/
     }
 
     /*private fun onValidate(result: Boolean?) {

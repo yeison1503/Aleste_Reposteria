@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.databinding.FragmentLoginBinding
 import com.example.alestereposteria.local.Users
@@ -44,6 +45,7 @@ class LoginFragment : Fragment() {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
 
+
         with(loginBinding) {
             singInButton.setOnClickListener {
                 loginViewModel.searchUser(
@@ -55,13 +57,11 @@ class LoginFragment : Fragment() {
     }
 
     private fun onFindUserDone(user: Users?) {
-
-
         if (user == null) {
             onMsgDoneSuscribe(msg = "Debe crear un usuario!")
         }else if(user.email == loginBinding.emailEditText.text.toString() && user.password == loginBinding.passwordEditText.text.toString()){
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToBottonActivity())
-
+            activity?.finish()
         }else{
             onMsgDoneSuscribe(msg = "Correo o Contraseña Incorrectas!")
         }

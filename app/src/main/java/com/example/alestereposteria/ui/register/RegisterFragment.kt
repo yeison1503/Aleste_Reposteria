@@ -30,6 +30,7 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         registerViewModel.msgDone.observe(viewLifecycleOwner) { msg ->
             onMsgDoneSuscribe(msg)
         }
@@ -39,6 +40,11 @@ class RegisterFragment : Fragment() {
         }
 
         with(registerBinding){
+
+            singInButton.setOnClickListener{
+                //activity?.onBackPressed()
+                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
+            }
 
             registerButton.setOnClickListener{
                 registerViewModel.DateValidate(
@@ -54,6 +60,7 @@ class RegisterFragment : Fragment() {
     }
 
    private fun onDateValidateSuscribe(validate: Boolean?) {
+       //activity?.onBackPressed()
        findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
     }
 

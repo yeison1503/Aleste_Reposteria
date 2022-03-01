@@ -1,44 +1,37 @@
 package com.example.alestereposteria.ui.main
 
-import android.app.DatePickerDialog
-import android.content.Intent
+import android.content.DialogInterface
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.example.alestereposteria.R
 import com.example.alestereposteria.databinding.ActivityMainBinding
-import com.example.alestereposteria.ui.bottom.BottonActivity
-import com.example.alestereposteria.ui.home.HomeFragment
-import com.example.alestereposteria.ui.login.LoginFragment
-import com.example.alestereposteria.ui.login.LoginFragmentDirections
-import com.example.alestereposteria.ui.splash.SplashFragment
-import com.example.alestereposteria.ui.splash.SplashFragmentDirections
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.concurrent.timerTask
+
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainBinding : ActivityMainBinding
-    //private var cal = Calendar.getInstance()
-    //private var publicationDate = ""
+    lateinit var mainBinding : ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-
-
     }
 
-    // Boton para cerrar sesión desde la barra menú
+    //advertencia cuando se oprime el boton hacia atras (onBackPressed)
+    override fun onBackPressed() {
+        val mensaje: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
+        mensaje.setTitle("¿Desea Salir de la Aplicacion?")
+        mensaje.setCancelable(false)
+        mensaje.setPositiveButton("Aceptar",
+            DialogInterface.OnClickListener { _, _ -> finish() })
+        mensaje.setNegativeButton("Cancelar",
+            DialogInterface.OnClickListener { _, _ -> })
+        mensaje.show()
+    }
+
+    //Boton para cerrar sesión desde la barra menú
     /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_overflow, menu)
+        menuInflater.inflate(R.menu.overflow_menu, menu)
         return true
     }
 

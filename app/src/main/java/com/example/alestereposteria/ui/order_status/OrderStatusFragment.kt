@@ -7,26 +7,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.alestereposteria.R
+import com.example.alestereposteria.databinding.FragmentOrderStatusBinding
+import com.example.alestereposteria.databinding.FragmentSplashBinding
+import com.example.alestereposteria.ui.splash.SplashViewModel
 
 class OrderStatusFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = OrderStatusFragment()
-    }
-
-    private lateinit var viewModel: OrderStatusViewModel
+    private lateinit var orderStatusBinding: FragmentOrderStatusBinding
+    private lateinit var orderStatusViewModel: OrderStatusViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_order_status, container, false)
+
+        orderStatusBinding = FragmentOrderStatusBinding.inflate(inflater, container, false)
+        orderStatusViewModel = ViewModelProvider(this)[OrderStatusViewModel::class.java]
+        return orderStatusBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(OrderStatusViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

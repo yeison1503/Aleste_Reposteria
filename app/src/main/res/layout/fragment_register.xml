@@ -137,4 +137,15 @@ tools:context=".ui.register.RegisterFragment">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/rep_password_text_input_ayout" />
 
+    <TextView
+        android:id="@+id/sing_in_button"
+        style="@style/TextLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/sing_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

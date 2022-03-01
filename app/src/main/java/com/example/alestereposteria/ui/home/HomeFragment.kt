@@ -7,26 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.alestereposteria.R
-
+import com.example.alestereposteria.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = HomeFragment()
-    }
-
-    private lateinit var viewModel: HomeViewModel
+    private lateinit var homeBinding: FragmentHomeBinding
+    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+
+        homeBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        return homeBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
