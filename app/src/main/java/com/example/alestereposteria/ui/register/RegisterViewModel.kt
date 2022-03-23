@@ -1,19 +1,23 @@
 package com.example.alestereposteria.ui.register
 
+import android.util.Log
+import android.widget.Toast
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.alestereposteria.repository.UsersRepository
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.sql.Types.NULL
 import java.util.regex.Pattern
 
 class RegisterViewModel : ViewModel() {
 
     private val usersRepository = UsersRepository()
+    private lateinit var auth: FirebaseAuth
 
     private val msg: MutableLiveData<String> = MutableLiveData()
     val msgDone: LiveData<String> = msg
@@ -60,12 +64,14 @@ class RegisterViewModel : ViewModel() {
         } else if(password != re_password){
             msg.value = "Las Contraseñas deben ser iguales!"
         } else{
+
             msg.value = "Gracias por registrarse!"
             dataValidate.value = true
 
-            GlobalScope.launch(Dispatchers.IO) {
+            /*GlobalScope.launch(Dispatchers.IO) {
                 usersRepository.saveUser(name, cell_phone, email, password)
-            }
+            }*/
         }
     }
+
 }

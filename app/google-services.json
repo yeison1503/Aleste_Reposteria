@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "714033821373",
+    "project_id": "alestereposteria",
+    "storage_bucket": "alestereposteria.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714033821373:android:eb8402975029e2ed4a29d4",
+        "android_client_info": {
+          "package_name": "com.example.alestereposteria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714033821373-ua8j7tllpkts064iu5md79u2bvucnep5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBua2KwWauQS8t44xcbBkVWsahVnJesjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714033821373-ua8j7tllpkts064iu5md79u2bvucnep5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

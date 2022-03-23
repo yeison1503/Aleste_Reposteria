@@ -37,7 +37,6 @@ class BottonActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
     }
 
     //Boton para cerrar sesión desde la barra menú

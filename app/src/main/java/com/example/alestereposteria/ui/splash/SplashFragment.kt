@@ -12,11 +12,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.databinding.FragmentSplashBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class SplashFragment : Fragment() {
 
     private lateinit var splashBinding: FragmentSplashBinding
     private lateinit var splashViewModel: SplashViewModel
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,13 +35,18 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        auth = Firebase.auth
 
         Handler().postDelayed(Runnable {
             //fragmentManager?.beginTransaction()?.remove(this)?.commit()
-            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            if (auth.currentUser == null){
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            }else{
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToBottonActivity())
+            }
+
         }, 1000)
 
-        //splashBinding.imageView.setOnClickListener{goToLoginFragment()}
 
     }
 
