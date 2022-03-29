@@ -106,23 +106,14 @@
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/sign_out_profile_text_input_layout"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/sign_out_profile_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:text="@string/sing_out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/payment_method_text_input_layout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/sign_out_profile_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/sing_out"
-            tools:ignore="TextContrastCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/payment_method_text_input_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

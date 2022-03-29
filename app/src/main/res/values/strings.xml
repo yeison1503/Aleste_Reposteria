@@ -16,7 +16,7 @@
     <string name="cupcake">Cupcake</string>
     <string name="cookies">Galletas</string>
     <string name="dessert">Postres</string>
-    <string name="remarks">Observaciones: </string>
+    <string name="remarks">Observaciones:</string>
     <string name="date_of_order">Fecha del Pedido: </string>
     <string name="date_format">DD-MM-YYYY</string>
     <string name="save">Guardar</string>
@@ -32,7 +32,10 @@
     <string name="title_profile">Perfil</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="favorites">Favoritos</string>
-    <string name="payment_method">Metodo de Pago</string>
+    <string name="favorites">Favoritos:</string>
+    <string name="payment_method">Metodo de Pago:</string>
+    <string name="size">Tamaño:</string>
+    <string name="cake_filling">Sabor del Relleno:</string>
+    <string name="message">Mensaje:</string>
 
 </resources>

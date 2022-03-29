@@ -26,7 +26,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.alestereposteria.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment3"
+            app:destination="@id/loginFragment3" />
+    </fragment>
     <fragment
         android:id="@+id/purchaseFragment"
         android:name="com.example.alestereposteria.ui.purchase.PurchaseFragment"
@@ -35,4 +39,9 @@
             android:id="@+id/action_purchaseFragment_to_orderStatusFragment"
             app:destination="@id/orderStatusFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment3"
+        android:name="com.example.alestereposteria.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

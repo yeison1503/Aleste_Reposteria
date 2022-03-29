@@ -1,21 +1,23 @@
 package com.example.alestereposteria.ui.profile
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.alestereposteria.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.databinding.FragmentProfileBinding
-import com.example.alestereposteria.databinding.FragmentRegisterBinding
-import com.example.alestereposteria.ui.register.RegisterViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class ProfileFragment : Fragment() {
 
 
     private lateinit var profileBinding: FragmentProfileBinding
     private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +27,19 @@ class ProfileFragment : Fragment() {
         profileBinding = FragmentProfileBinding.inflate(inflater, container, false)
         profileViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
         return profileBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        auth = Firebase.auth
+
+
+        profileBinding.signOutProfileButton.setOnClickListener {
+            auth.signOut()
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginFragment3())
+        }
+
     }
 
 }
