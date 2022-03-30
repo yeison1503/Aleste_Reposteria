@@ -27,8 +27,9 @@ class PurchaseFragment : Fragment() {
 
     private var cal = Calendar.getInstance()
     private var publicationDate = ""
+    private var user = Firebase.auth.currentUser
 
-    val REQUEST_IMAGE_CAPTURE = 1
+    private val REQUEST_IMAGE_CAPTURE = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,10 +65,10 @@ class PurchaseFragment : Fragment() {
 
         with(purchaseBinding){
 
-            val user = Firebase.auth.currentUser
+
             user?.let {
                 // Name, email address, and profile photo Url
-                nameUsuarioTextView.text = user.email
+                nameUsuarioTextView.text = user!!.email
             }
 
             dateOfOrdenButton.setOnClickListener {
@@ -87,7 +88,6 @@ class PurchaseFragment : Fragment() {
                     messageEditText.text.toString(),
                     dateOfOrdenButton.text.toString()
                 )
-                //clearOnPantalla()
             }
 
             photoImageView.setOnClickListener{
@@ -128,15 +128,16 @@ class PurchaseFragment : Fragment() {
             val comments = remarksEditText.text.toString()
 
 
-            purchaseViewModel.savePurchaseServer(product, dimension, cakefilling, msg, comments, publicationDate)
+            user?.let { purchaseViewModel.savePurchaseServer(product, dimension, cakefilling, msg, comments, publicationDate,  it.uid) }
             onMsgDoneSuscribe("Pedido guardado con Éxito")
+            clearOnPantalla()
         }
     }
 
     private fun clearOnPantalla() {
         with(purchaseBinding){
             sizeEditText.setText("")
-            cakeFillingEditText.setText("")
+            cakeFillingEditText.setText("*")
             messageEditText.setText("")
             remarksEditText.setText("")
         }

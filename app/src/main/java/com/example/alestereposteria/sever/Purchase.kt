@@ -11,5 +11,6 @@ data class Purchase(
     var msg: String? = null,
     var purchase_date: String? = null,
     var comments: String? = null,
-    var urlPicture: String? = null
+    var urlPicture: String? = null,
+    var userid: String? = null
 ): Serializable

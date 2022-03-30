@@ -21,10 +21,14 @@ class PurchaseViewModel : ViewModel() {
 
 
     fun validateFields(size: String, cakeFilling: String, message: String, dateOfOrden: String) {
+
         if (size.isEmpty() || cakeFilling.isEmpty() || message.isEmpty() || dateOfOrden.isEmpty()) {
             msg.value =
                 "Debe digitar los campos del Tamaño, Relleno, Mensaje y Fecha de Entrega"
-        } else {
+        } else if (cakeFilling.length <= 3  || size.isEmpty()) {
+            msg.value =
+                "Debe digitar los campos"
+        } else if (cakeFilling.length > 5  || size.length > 5 || dateOfOrden.length > 5){
             dataValidate.value = true
         }
     }
@@ -36,7 +40,8 @@ class PurchaseViewModel : ViewModel() {
         cakefilling: String,
         msg: String,
         comments: String,
-        publicationDate: String
+        publicationDate: String,
+        uid: String
     ) {
         GlobalScope.launch(Dispatchers.IO) {
             alesteServerRepository.savePurchase(
@@ -45,7 +50,8 @@ class PurchaseViewModel : ViewModel() {
                 cakefilling,
                 msg,
                 comments,
-                publicationDate
+                publicationDate,
+                uid
             )
         }
     }

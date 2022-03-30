@@ -102,7 +102,7 @@ class RegisterFragment : Fragment() {
 
     private fun createUser(uid: String?, email: String, name: String, cellphone: String) {
         val db = Firebase.firestore
-        val user = User(uid = uid, email = email, name = name, phone = cellphone)
+        val user = User(uid = uid, email = email, name = name, phone = cellphone, urlPicture = null)
 
         uid?.let { uid ->
             db.collection("users").document(uid).set(user)
