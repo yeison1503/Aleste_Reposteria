@@ -113,13 +113,12 @@ class PurchaseFragment : Fragment() {
 
     private fun onDateValidateSuscribe(result: Boolean?) {
         with(purchaseBinding){
-            var product = ""
 
-            when {
-                cakeCheckBox.isChecked -> {product = "Torta"}
-                cupcakeCheckBox.isChecked -> {product = "Cupcake"}
-                cookiesCheckBox.isChecked -> {product = "Galletas"}
-                dessertCheckBox.isChecked -> {product = "Postre"}
+            val product = when {
+                cupcakeCheckBox.isChecked ->  "Cupcake"
+                cookiesCheckBox.isChecked ->  "Galletas"
+                dessertCheckBox.isChecked ->  "Postre"
+                else -> "Torta"
             }
 
             val dimension = sizeEditText.text.toString()

@@ -1,13 +1,12 @@
 package com.example.alestereposteria.ui.home
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.alestereposteria.R
 import com.example.alestereposteria.databinding.FragmentHomeBinding
 import com.example.alestereposteria.sever.Purchase
 
@@ -22,7 +21,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         homeBinding = FragmentHomeBinding.inflate(inflater, container, false)
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         return homeBinding.root
@@ -31,14 +29,17 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeBinding.purchaseRecyclerView.apply {
-            /* layoutManager = LinearLayoutManager(this@HomeFragment.requireContext())
-             adapter = purchaseAdapter
-             setHasFixedSize(false)*/
-        }
+        purchaseAdapter =
+            PurchaseAdapter(purchaseListFromServer, onItemClicked = { onPurchaseItemClicked(it) })
 
         homeViewModel.loadPurchaseFromServerDone.observe(viewLifecycleOwner) { result ->
             onLoadPurchaseFromServerDoneSubscribe(result)
+        }
+
+        homeBinding.purchaseRecyclerView.apply {
+            layoutManager = LinearLayoutManager(this@HomeFragment.requireContext())
+            adapter = purchaseAdapter
+            setHasFixedSize(false)
         }
 
         homeViewModel.loadPurchaseFromServer()
@@ -46,8 +47,12 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun onPurchaseItemClicked(it: Purchase) {
+
+    }
+
     private fun onLoadPurchaseFromServerDoneSubscribe(purchaseListFromServerLoaded: ArrayList<Purchase>) {
-        /*purchaseListFromServer = purchaseListFromServerLoaded
-        purchaseAdapter.appendItems(purchaseListFromServer)*/
+        purchaseListFromServer = purchaseListFromServerLoaded
+        purchaseAdapter.appendItems(purchaseListFromServer)
     }
 }

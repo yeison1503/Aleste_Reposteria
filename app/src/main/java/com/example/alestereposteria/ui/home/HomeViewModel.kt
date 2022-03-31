@@ -16,11 +16,11 @@ class HomeViewModel : ViewModel() {
 
     private var purchaseList: ArrayList<Purchase> = ArrayList()
 
-    private val loadPurchaseFromServer : MutableLiveData<ArrayList<Purchase>> = MutableLiveData()
+    private val loadPurchaseFromServer: MutableLiveData<ArrayList<Purchase>> = MutableLiveData()
     val loadPurchaseFromServerDone: LiveData<ArrayList<Purchase>> = loadPurchaseFromServer
 
     fun loadPurchaseFromServer() {
-        GlobalScope.launch(Dispatchers.IO){
+        GlobalScope.launch(Dispatchers.IO) {
             val querySnapshot = alesteServerRepository.loadPurchase()
             for (document in querySnapshot) {
                 val purchaseServer: Purchase = document.toObject<Purchase>()

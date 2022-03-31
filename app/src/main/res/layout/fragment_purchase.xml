@@ -26,56 +26,60 @@ android:fillViewport="true">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <RadioGroup
+        android:id="@+id/Radio_button_grup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_usuario_text_View">
+
+        <RadioButton
+            android:id="@+id/cake_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cake" />
+
+        <RadioButton
+            android:id="@+id/cupcake_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cupcake" />
+
+        <RadioButton
+            android:id="@+id/cookies_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cookies" />
+
+        <RadioButton
+            android:id="@+id/dessert_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/dessert" />
+    </RadioGroup>
+
     <TextView
         android:id="@+id/product_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="@string/product"
         android:textColor="#090000"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_usuario_text_View" />
-
-    <CheckBox
-        android:id="@+id/cake_check_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/cake"
-        app:layout_constraintEnd_toStartOf="@+id/cupcake_check_box"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_text_view" />
-
-    <CheckBox
-        android:id="@+id/cupcake_check_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cupcake"
-        app:layout_constraintEnd_toStartOf="@+id/cookies_check_box"
-        app:layout_constraintStart_toEndOf="@+id/cake_check_box"
-        app:layout_constraintTop_toTopOf="@+id/cake_check_box" />
-
-    <CheckBox
-        android:id="@+id/cookies_check_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cookies"
-        app:layout_constraintEnd_toStartOf="@+id/dessert_check_box"
-        app:layout_constraintStart_toEndOf="@+id/cupcake_check_box"
-        app:layout_constraintTop_toTopOf="@+id/cupcake_check_box" />
-
-    <CheckBox
-        android:id="@+id/dessert_check_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/dessert"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cookies_check_box"
-        app:layout_constraintTop_toTopOf="@+id/cookies_check_box" />
+        app:layout_constraintTop_toBottomOf="@+id/Radio_button_grup" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/size_text_imput_layout"
@@ -83,11 +87,11 @@ android:fillViewport="true">
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dessert_check_box">
+        app:layout_constraintTop_toBottomOf="@+id/product_text_view">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/size_edit_text"
