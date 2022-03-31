@@ -15,13 +15,19 @@ import com.example.alestereposteria.databinding.ActivityBottonBinding
 import com.example.alestereposteria.databinding.ActivityMainBinding
 import com.example.alestereposteria.ui.login.LoginFragment
 import com.example.alestereposteria.ui.main.MainActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class BottonActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBottonBinding
 
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth = Firebase.auth
 
         binding = ActivityBottonBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -46,6 +52,8 @@ class BottonActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
         when(item.itemId){
             R.id.menu_sing_out -> goToLoginActivity()
         }
@@ -54,10 +62,12 @@ class BottonActivity : AppCompatActivity() {
 
     private fun goToLoginActivity(){
         val intent = Intent(this, MainActivity::class.java)
+        auth.signOut()
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.flags =Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         finish()
     }
+
 
 }

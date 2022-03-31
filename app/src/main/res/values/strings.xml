@@ -17,7 +17,7 @@
     <string name="cookies">Galletas</string>
     <string name="dessert">Postres</string>
     <string name="remarks">Observaciones:</string>
-    <string name="date_of_order">Fecha del Pedido: </string>
+    <string name="date_of_order">Fecha del Pedido:</string>
     <string name="date_format">DD-MM-YYYY</string>
     <string name="save">Guardar</string>
     <string name="info">Nombre: %s \nNúmero Celular: %s \nObservaciones: %s \nProducto: %s \nFecha de Publicación: %s</string>
@@ -37,5 +37,7 @@
     <string name="size">Tamaño:</string>
     <string name="cake_filling">Sabor del Relleno:</string>
     <string name="message">Mensaje:</string>
+    <string name="delivery_date">Fecha de Entrega</string>
+    <string name="taste">Sabor:</string>
 
 </resources>

@@ -2,8 +2,12 @@ package com.example.alestereposteria.sever.repository
 
 import com.example.alestereposteria.sever.Purchase
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 
 class AlesteServerRepository {
@@ -37,6 +41,12 @@ class AlesteServerRepository {
         user?.let {
             db.collection("users").document(it.uid).collection("mis_compras")
                 .document(documentPurchase.id).set(purchase)
+        }
+    }
+
+    suspend fun loadPurchase(): QuerySnapshot {
+        return withContext(Dispatchers.IO) {
+            db.collection("Purchase").get().await()
         }
     }
 
