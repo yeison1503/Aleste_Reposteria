@@ -1,4 +1,5 @@
 package com.example.alestereposteria.sever
+import java.io.Serializable
 
 data class User (
     var uid: String? = null,
@@ -6,4 +7,4 @@ data class User (
     var phone: String? = null,
     var name: String? = null,
     var urlPicture: String? = null
-)
+): Serializable

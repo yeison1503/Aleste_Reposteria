@@ -1,6 +1,5 @@
-package com.example.alestereposteria.repository
+package com.example.alestereposteria.local.repository
 
-import android.util.Log
 import com.example.alestereposteria.alestereposteria
 import com.example.alestereposteria.local.Users
 import com.example.alestereposteria.local.UsersDao

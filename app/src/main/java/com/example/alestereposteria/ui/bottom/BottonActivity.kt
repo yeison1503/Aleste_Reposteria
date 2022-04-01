@@ -23,11 +23,11 @@ class BottonActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBottonBinding
 
-    private lateinit var auth: FirebaseAuth
+    //private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        auth = Firebase.auth
+        //auth = Firebase.auth
 
         binding = ActivityBottonBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -46,7 +46,7 @@ class BottonActivity : AppCompatActivity() {
     }
 
     //Boton para cerrar sesión desde la barra menú
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+   /* override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.overflow_menu, menu)
         return true
     }
@@ -67,7 +67,7 @@ class BottonActivity : AppCompatActivity() {
         intent.flags =Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         finish()
-    }
+    }*/
 
 
 }

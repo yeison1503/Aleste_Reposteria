@@ -7,8 +7,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.alestereposteria.ui.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_purchaseFragment"
             app:destination="@id/purchaseFragment" />
@@ -16,8 +15,7 @@
     <fragment
         android:id="@+id/orderStatusFragment"
         android:name="com.example.alestereposteria.ui.order_status.OrderStatusFragment"
-        android:label="fragment_order_status"
-        tools:layout="@layout/fragment_order_status" >
+        tools:layout="@layout/fragment_order_status">
         <action
             android:id="@+id/action_orderStatusFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
@@ -25,23 +23,20 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.alestereposteria.ui.profile.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
-            android:id="@+id/action_profileFragment_to_loginFragment3"
-            app:destination="@id/loginFragment3" />
+            android:id="@+id/action_profileFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/purchaseFragment"
-        android:name="com.example.alestereposteria.ui.purchase.PurchaseFragment"
-        android:label="PurchaseFragment" >
+        android:name="com.example.alestereposteria.ui.purchase.PurchaseFragment">
         <action
             android:id="@+id/action_purchaseFragment_to_orderStatusFragment"
             app:destination="@id/orderStatusFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/loginFragment3"
-        android:name="com.example.alestereposteria.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.alestereposteria.ui.main.MainActivity"
+        tools:layout="@layout/activity_main" />
 </navigation>

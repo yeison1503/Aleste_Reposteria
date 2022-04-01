@@ -11,8 +11,8 @@ import kotlinx.coroutines.withContext
 
 
 class AlesteServerRepository {
-    var db = Firebase.firestore
-    var user = Firebase.auth.currentUser
+    private var db = Firebase.firestore
+    private var user = Firebase.auth.currentUser
 
     fun savePurchase(
         product: String,
@@ -47,6 +47,12 @@ class AlesteServerRepository {
     suspend fun loadPurchase(): QuerySnapshot {
         return withContext(Dispatchers.IO) {
             db.collection("Purchase").get().await()
+        }
+    }
+
+    suspend fun loadUser(): QuerySnapshot {
+        return withContext(Dispatchers.IO) {
+            db.collection("users").get().await()
         }
     }
 

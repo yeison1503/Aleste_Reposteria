@@ -1,17 +1,9 @@
 package com.example.alestereposteria.ui.register
 
-import android.util.Log
-import android.widget.Toast
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.alestereposteria.repository.UsersRepository
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
 class RegisterViewModel : ViewModel() {

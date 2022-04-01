@@ -2,9 +2,9 @@
 <resources>
     <string name="app_name">Aleste Repostería</string>
     <string name="sing_out">Cerrar sesión</string>
-    <string name="email">Correo Electrónico</string>
-    <string name="password">Contraseña</string>
-    <string name="repeat_password">Repita la contraseña</string>
+    <string name="email">Correo Electrónico:</string>
+    <string name="password">Contraseña:</string>
+    <string name="repeat_password">Repita la contraseña:</string>
     <string name="register">Registrar</string>
     <string name="sing_in">INICIAR SESIÓN</string>
     <string name="title_activity_splash">SplashActivity</string>
