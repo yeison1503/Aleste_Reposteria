@@ -76,11 +76,16 @@ class AlesteServerRepository {
             complement = complement,
             userid = user?.uid
         )
-        db.collection("Address").document(documentAddress.id).set(address)
 
         user?.let {
             db.collection("users").document(it.uid).collection("mis_address")
                 .document(documentAddress.id).set(address)
+        }
+    }
+
+    suspend fun loadAddress(): QuerySnapshot? {
+        return withContext(Dispatchers.IO) {
+            user?.let { db.collection("users").document(it.uid).collection("mis_address").get().await() }
         }
     }
 

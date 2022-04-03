@@ -1,5 +1,6 @@
 package com.example.alestereposteria.ui.profile
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.databinding.FragmentProfileBinding
+import com.example.alestereposteria.sever.Address
 import com.example.alestereposteria.sever.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -41,9 +43,13 @@ class ProfileFragment : Fragment() {
             onFindUserDoneSuscribe(result)
         }
 
+        profileViewModel.findAddressDone.observe(viewLifecycleOwner) { result ->
+            onFindAddressDoneSuscribe(result)
+        }
 
         user?.let { profileViewModel.searchUser(it.uid) }
 
+        user?.let { profileViewModel.searchAddress(it.uid) }
 
         profileBinding.signOutProfileButton.setOnClickListener {
             auth.signOut()
@@ -53,12 +59,18 @@ class ProfileFragment : Fragment() {
 
     }
 
+    @SuppressLint("SetTextI18n")
+    private fun onFindAddressDoneSuscribe(address: Address?) {
+        profileBinding.addressProfileEditExample.text =
+            address?.city + "-" + address?.country + "\n" + "Barrio: " + address?.district + "\n" + "Direccion: " + address?.street + " #" + address?.numberStreet
+    }
+
     private fun onFindUserDoneSuscribe(user: User?) {
         with(profileBinding) {
             Picasso.get().load(user?.urlPicture).into(profileImageView)
             profileNameTextView.text = user?.name
             cellphoneProfileEditTextExample.text = user?.phone
-            addressProfileEditExample.text = user?.email
+            emailProfileEditExample.text = user?.email
         }
     }
 
