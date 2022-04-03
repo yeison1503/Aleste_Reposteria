@@ -41,7 +41,6 @@ class PurchaseViewModel : ViewModel() {
         msg: String,
         comments: String,
         publicationDate: String,
-        uid: String
     ) {
         GlobalScope.launch(Dispatchers.IO) {
             alesteServerRepository.savePurchase(
@@ -51,7 +50,6 @@ class PurchaseViewModel : ViewModel() {
                 msg,
                 comments,
                 publicationDate,
-                uid
             )
         }
     }

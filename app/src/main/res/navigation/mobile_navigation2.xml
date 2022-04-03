@@ -34,9 +34,20 @@
         <action
             android:id="@+id/action_purchaseFragment_to_orderStatusFragment"
             app:destination="@id/orderStatusFragment" />
+        <action
+            android:id="@+id/action_purchaseFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
     </fragment>
     <activity
         android:id="@+id/mainActivity"
         android:name="com.example.alestereposteria.ui.main.MainActivity"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.example.alestereposteria.ui.Address.AddressFragment"
+        android:label="AddressFragment" >
+        <action
+            android:id="@+id/action_addressFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

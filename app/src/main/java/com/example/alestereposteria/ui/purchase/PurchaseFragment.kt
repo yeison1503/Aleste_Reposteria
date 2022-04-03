@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.R
 import com.example.alestereposteria.databinding.FragmentPurchaseBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -127,8 +128,9 @@ class PurchaseFragment : Fragment() {
             val comments = remarksEditText.text.toString()
 
 
-            user?.let { purchaseViewModel.savePurchaseServer(product, dimension, cakefilling, msg, comments, publicationDate,  it.uid) }
+            purchaseViewModel.savePurchaseServer(product, dimension, cakefilling, msg, comments, publicationDate)
             onMsgDoneSuscribe("Pedido guardado con Éxito")
+            findNavController().navigate(PurchaseFragmentDirections.actionPurchaseFragmentToAddressFragment())
             clearOnPantalla()
         }
     }
@@ -136,7 +138,7 @@ class PurchaseFragment : Fragment() {
     private fun clearOnPantalla() {
         with(purchaseBinding){
             sizeEditText.setText("")
-            cakeFillingEditText.setText("*")
+            cakeFillingEditText.setText("")
             messageEditText.setText("")
             remarksEditText.setText("")
         }
