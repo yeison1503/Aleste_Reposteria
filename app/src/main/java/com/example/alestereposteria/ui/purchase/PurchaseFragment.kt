@@ -137,10 +137,10 @@ class PurchaseFragment : Fragment() {
 
     private fun clearOnPantalla() {
         with(purchaseBinding){
-            sizeEditText.setText("")
-            cakeFillingEditText.setText("")
-            messageEditText.setText("")
-            remarksEditText.setText("")
+            sizeEditText.text?.clear()
+            cakeFillingEditText.text?.clear()
+            messageEditText.text?.clear()
+            remarksEditText.text?.clear()
         }
     }
 

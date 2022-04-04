@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.alestereposteria.R
 import com.example.alestereposteria.databinding.FragmentOrderStatusBinding
 import com.example.alestereposteria.databinding.FragmentSplashBinding
@@ -26,5 +27,19 @@ class OrderStatusFragment : Fragment() {
         return orderStatusBinding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        with(orderStatusBinding){
+
+            updateButton.setOnClickListener{
+                findNavController().navigate(OrderStatusFragmentDirections.actionOrderStatusFragmentToUpdateFragment())
+            }
+
+            deleteButton.setOnClickListener{
+                findNavController().navigate(OrderStatusFragmentDirections.actionOrderStatusFragmentToDeleteFragment())
+            }
+        }
+
+    }
 }

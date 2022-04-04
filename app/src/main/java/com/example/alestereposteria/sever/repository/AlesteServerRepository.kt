@@ -85,7 +85,56 @@ class AlesteServerRepository {
 
     suspend fun loadAddress(): QuerySnapshot? {
         return withContext(Dispatchers.IO) {
-            user?.let { db.collection("users").document(it.uid).collection("mis_address").get().await() }
+            user?.let {
+                db.collection("users").document(it.uid).collection("mis_address").get().await()
+            }
+        }
+    }
+
+    suspend fun loadProduct(): QuerySnapshot? {
+        return withContext(Dispatchers.IO) {
+            user?.let {
+                db.collection("users").document(it.uid).collection("mis_compras").get().await()
+            }
+        }
+    }
+
+    fun updatePurchase(
+        id: String,
+        product: String,
+        dimension: String,
+        cakefilling: String,
+        msg: String,
+        comments: String,
+        publicationDate: String
+    ) {
+        val documentPurchase = db.collection("Purchase").document()
+
+        val purchase = Purchase(
+            id = documentPurchase.id,
+            product = product,
+            dimension = dimension,
+            cakefilling = cakefilling,
+            msg = msg,
+            comments = comments,
+            purchase_date = publicationDate,
+            userid = user?.uid
+        )
+        db.collection("Purchase").document(documentPurchase.id).set(purchase)
+
+        user?.let {
+            db.collection("users").document(it.uid).collection("mis_compras")
+                .document(id).set(purchase)
+        }
+
+    }
+
+    fun deleteBook(purchase: Purchase) {
+        purchase.id?.let {
+            user?.let { it1 ->
+                db.collection("users").document(it1.uid).collection("mis_compras")
+                    .document(it).delete()
+            }
         }
     }
 

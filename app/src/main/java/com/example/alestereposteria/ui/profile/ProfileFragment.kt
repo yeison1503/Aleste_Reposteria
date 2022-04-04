@@ -61,6 +61,7 @@ class ProfileFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun onFindAddressDoneSuscribe(address: Address?) {
+
         profileBinding.addressProfileEditExample.text =
             address?.city + "-" + address?.country + "\n" + "Barrio: " + address?.district + "\n" + "Direccion: " + address?.street + " #" + address?.numberStreet
     }
