@@ -58,5 +58,8 @@
     <string name="delete_purchase_msg">¿Desea eliminar el pedido %s ?</string>
     <string name="cancel">Cancelar</string>
     <string name="accept">Aceptar</string>
+    <string name="facebook">FACEBOOK</string>
+    <string name="instagram">INSTAGRAM</string>
+    <string name="whatsapp">WhastApp</string>
 
 </resources>

@@ -39,6 +39,10 @@ class OrderStatusFragment : Fragment() {
             deleteButton.setOnClickListener{
                 findNavController().navigate(OrderStatusFragmentDirections.actionOrderStatusFragmentToDeleteFragment())
             }
+
+            contactButton.setOnClickListener{
+                findNavController().navigate(OrderStatusFragmentDirections.actionOrderStatusFragmentToContactFragment())
+            }
         }
 
     }

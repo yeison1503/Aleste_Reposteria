@@ -43,6 +43,7 @@ class SplashFragment : Fragment() {
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
             }else{
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToBottonActivity())
+                activity?.finish()
             }
 
         }, 1000)
