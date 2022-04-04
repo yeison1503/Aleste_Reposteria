@@ -72,14 +72,25 @@ tools:context=".ui.login.LoginFragment">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/password_text_input_layout" />
 
-<TextView
-    android:id="@+id/register_text_view"
-    style="@style/TextLink"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:text="@string/does_not_have_account"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/sing_in_button" />
+    <TextView
+        android:id="@+id/register_text_view"
+        style="@style/TextLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/does_not_have_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sing_in_button" />
+
+    <TextView
+        android:id="@+id/recover_password_text_view"
+        style="@style/TextLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/recover_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_text_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
